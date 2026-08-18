@@ -8,6 +8,9 @@ interface AnimatedSectionProps {
   className?: string;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
+  duration?: number;
+  distance?: number;
+  scale?: boolean;
 }
 
 export default function AnimatedSection({
@@ -15,15 +18,18 @@ export default function AnimatedSection({
   className = "",
   delay = 0,
   direction = "up",
+  duration = 0.9,
+  distance = 60,
+  scale = false,
 }: AnimatedSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const directionOffset = {
-    up: { y: 60, x: 0 },
-    down: { y: -60, x: 0 },
-    left: { x: 60, y: 0 },
-    right: { x: -60, y: 0 },
+    up: { y: distance, x: 0 },
+    down: { y: -distance, x: 0 },
+    left: { x: distance, y: 0 },
+    right: { x: -distance, y: 0 },
   };
 
   return (
@@ -32,15 +38,16 @@ export default function AnimatedSection({
       className={className}
       initial={{
         opacity: 0,
+        ...(scale ? { scale: 0.95 } : {}),
         ...directionOffset[direction],
       }}
       animate={
         isInView
-          ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, ...directionOffset[direction] }
+          ? { opacity: 1, x: 0, y: 0, ...(scale ? { scale: 1 } : {}) }
+          : { opacity: 0, ...directionOffset[direction], ...(scale ? { scale: 0.95 } : {}) }
       }
       transition={{
-        duration: 0.8,
+        duration,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}

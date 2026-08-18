@@ -1,100 +1,91 @@
+import Image from "next/image";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
-const focusAreas = [
+const pillars = [
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 12h6M12 9v6M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Natural Language Processing",
+    image: "/Augment.png",
+    titleBold: "Augment",
+    titleRegular: "our expertise",
     description:
-      "Extracting insights from unstructured documents, automating review processes, and enabling natural language interfaces to complex data.",
+      "Helping our people deliver better, faster or more consistently.",
   },
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M3 3h18v18H3zM9 9h6v6H9z" />
-      </svg>
-    ),
-    title: "Computer Vision",
+    image: "/Transform.png",
+    titleBold: "Transform",
+    titleRegular: "how we deliver",
     description:
-      "Automated inspection of infrastructure assets, satellite imagery analysis, and real-time environmental monitoring through visual AI.",
+      "Automating or fundamentally improving parts of existing consulting workflows.",
   },
   {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: "Predictive Analytics",
+    image: "/Create.png",
+    titleBold: "Create",
+    titleRegular: "new digital offerings",
     description:
-      "Forecasting asset degradation, environmental changes, and project risks using machine learning models trained on domain-specific data.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
-    title: "Digital Twins",
-    description:
-      "Creating virtual replicas of physical assets and systems that combine real-time sensor data with engineering models for decision support.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m14 0h2M3 15h2m14 0h2M7 7h10v10H7z" />
-      </svg>
-    ),
-    title: "Workflow Automation",
-    description:
-      "Intelligent orchestration of complex processes — from permitting workflows to quality assurance — reducing manual effort and accelerating delivery.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
-    title: "Generative AI",
-    description:
-      "Leveraging large language models for report generation, design exploration, stakeholder communication, and knowledge management at scale.",
+      "Turning our expertise into repeatable digital capabilities that can be used by our people and our clients.",
   },
 ];
 
 export default function Focus() {
   return (
-    <section id="focus" className="py-24 md:py-32 bg-[#1a1a1a]">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <AnimatedSection>
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#FF6B00] mb-4">
+    <section id="focus" className="bg-[#f5f5f5] min-h-screen flex flex-col">
+      {/* Section label bar */}
+      <div className="border-y border-[#1f1f1f]/15">
+        <div className="max-w-[1440px] mx-auto px-[100px] py-4">
+          <p className="text-xs font-bold uppercase tracking-[1.2px] text-[#1f1f1f]">
             Our Focus
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl">
-            Deep expertise across AI disciplines
+        </div>
+      </div>
+
+      <div className="max-w-[1320px] mx-auto py-[140px] flex flex-col gap-[100px] items-center flex-1 justify-center">
+        <AnimatedSection className="text-center max-w-[796px]" duration={1} distance={80}>
+          <h2 className="text-[40px] font-bold text-[#1f1f1f] tracking-[-0.4px] leading-[1.2] mb-4">
+            Where expertise meets opportunity
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mb-16">
-            We bring together specialists in machine learning, data engineering, and
-            domain science to solve problems that matter.
+          <p className="text-lg text-[#676767] leading-[1.4]">
+            AI technology alone isn&apos;t our differentiator. The opportunity lies in
+            combining it with our domain expertise, client relationships, global delivery
+            capability and wealth of project data and insights to create new value for our
+            clients.
           </p>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {focusAreas.map((area, i) => (
-            <AnimatedSection key={area.title} delay={0.1 * i}>
-              <div className="group p-6 rounded-xl border border-white/10 hover:border-[#FF6B00]/30 bg-white/5 hover:bg-white/[0.08] transition-all duration-300">
-                <div className="text-[#FF6B00] mb-4">{area.icon}</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {area.title}
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed">
-                  {area.description}
-                </p>
+        {/* Three pillars with vertical orange line separators */}
+        <div className="flex items-center justify-center gap-12 w-full">
+          {pillars.map((pillar, i) => (
+            <AnimatedSection key={pillar.titleBold} delay={0.2 + 0.15 * i} className="contents" duration={1}>
+              {/* Orange vertical line separator */}
+              <div className="flex flex-col gap-6 items-center h-[260px] w-[9px] shrink-0">
+                <div className="size-[9px] bg-[#ff5c00]" />
+                <div className="flex-1 w-px bg-[#ff5c00]/30" />
+                <div className="size-[9px] bg-[#ff5c00]" />
+              </div>
+
+              {/* Pillar content */}
+              <div className="flex flex-col items-center text-center justify-between h-[260px] w-[320px]">
+                <div className="h-[80px] w-[86px] relative">
+                  <Image src={pillar.image} alt="" fill className="object-contain object-bottom" />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <p className="text-2xl text-[#1f1f1f]">
+                    <span className="font-bold">{pillar.titleBold} </span>
+                    {pillar.titleRegular}
+                  </p>
+                  <p className="text-base text-[#676767] leading-[1.5]">
+                    {pillar.description}
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection>
+          <p className="text-lg text-[#676767] text-center max-w-[564px]">
+            Across all three, we look for opportunities where AI and digital can create
+            meaningful, scalable client value.
+          </p>
+        </AnimatedSection>
       </div>
     </section>
   );

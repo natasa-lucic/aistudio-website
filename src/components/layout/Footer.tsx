@@ -1,25 +1,30 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#111] text-white/50 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <svg
-            width="100"
-            height="20"
-            viewBox="0 0 180 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="Arcadis"
-          >
-            <circle cx="12" cy="16" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
-            <path d="M8 20 Q12 8 16 20" stroke="#FF6B00" strokeWidth="2" fill="none" />
-            <text x="30" y="22" fill="currentColor" fontSize="18" fontWeight="bold" fontFamily="Arial, sans-serif">
-              ARCADIS
-            </text>
-          </svg>
-          <span className="text-xs">AI Studio</span>
+    <footer className="bg-[#1f1f1f] border-t border-white/10">
+      <div className="max-w-[1440px] mx-auto px-[100px]">
+        {/* Top row */}
+        <div className="flex items-center justify-between py-4 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <Image src="/arcadis-logo.svg" alt="Arcadis" width={100} height={20} />
+            <span className="text-white/40 text-sm">|</span>
+            <span className="text-white/60 text-sm">AI Studio</span>
+          </div>
+          <nav className="flex items-center gap-8">
+            <a href="#mission" className="text-sm text-white/50 hover:text-white transition-colors">Our mission</a>
+            <a href="#focus" className="text-sm text-white/50 hover:text-white transition-colors">Our focus</a>
+            <a href="#our-work" className="text-sm text-white/50 hover:text-white transition-colors">Our work</a>
+            <a href="#contact" className="text-sm text-white/50 hover:text-white transition-colors">Contact</a>
+          </nav>
         </div>
-        <p className="text-xs">&copy; {new Date().getFullYear()} Arcadis. All rights reserved.</p>
+
+        {/* Bottom row */}
+        <div className="py-4">
+          <p className="text-xs text-white/30">
+            &copy; Arcadis {new Date().getFullYear()}&ensp;|&ensp;Internal use only
+          </p>
+        </div>
       </div>
     </footer>
   );

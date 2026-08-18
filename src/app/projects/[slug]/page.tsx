@@ -36,9 +36,9 @@ export default async function ProjectPage(props: {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
+      <main>
         {/* Hero */}
-        <section className="bg-[#1a1a1a] py-20 md:py-28">
+        <section className="bg-[#1f1f1f] py-20 md:py-28">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <AnimatedSection>
               <Link
@@ -57,7 +57,7 @@ export default async function ProjectPage(props: {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="text-[10px] uppercase tracking-wider text-[#FF6B00]/80 bg-[#FF6B00]/10 px-2.5 py-1 rounded"
+                    className="text-[10px] uppercase tracking-wider text-[#ff5c00]/80 bg-[#ff5c00]/10 px-2.5 py-1 rounded"
                   >
                     {tech}
                   </span>
@@ -93,7 +93,7 @@ export default async function ProjectPage(props: {
         </section>
 
         {/* Challenge / Solution / Outcome */}
-        <section className="py-16 md:py-24 bg-[#f8f8f8]">
+        <section className="py-16 md:py-24 bg-[#f5f5f5]">
           <div className="max-w-4xl mx-auto px-6 md:px-8">
             <div className="grid gap-12">
               <AnimatedSection>

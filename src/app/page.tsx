@@ -5,6 +5,7 @@ import Mission from "@/components/sections/Mission";
 import Focus from "@/components/sections/Focus";
 import HowWeWork from "@/components/sections/HowWeWork";
 import OurWork from "@/components/sections/OurWork";
+import Adoption from "@/components/sections/Adoption";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Focus />
         <HowWeWork />
         <OurWork />
+        <Adoption />
         <Contact />
       </main>
       <Footer />

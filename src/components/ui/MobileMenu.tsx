@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface MobileMenuProps {
   items: { href: string; label: string }[];
@@ -10,27 +11,14 @@ interface MobileMenuProps {
 export default function MobileMenu({ items, onClose }: MobileMenuProps) {
   return (
     <motion.div
-      className="fixed inset-0 z-[60] bg-[#1a1a1a] flex flex-col"
+      className="fixed inset-0 z-[60] bg-[#1f1f1f] flex flex-col"
       initial={{ x: "100%" }}
       animate={{ x: 0 }}
       exit={{ x: "100%" }}
       transition={{ type: "spring", damping: 30, stiffness: 300 }}
     >
       <div className="flex items-center justify-between px-6 py-4">
-        <svg
-          width="140"
-          height="28"
-          viewBox="0 0 180 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Arcadis"
-        >
-          <circle cx="12" cy="16" r="10" stroke="white" strokeWidth="2" fill="none" />
-          <path d="M8 20 Q12 8 16 20" stroke="#FF6B00" strokeWidth="2" fill="none" />
-          <text x="30" y="22" fill="white" fontSize="18" fontWeight="bold" fontFamily="Arial, sans-serif">
-            ARCADIS
-          </text>
-        </svg>
+        <Image src="/arcadis-logo.svg" alt="Arcadis" width={140} height={28} />
         <button
           onClick={onClose}
           className="p-2 text-white"

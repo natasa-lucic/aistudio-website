@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
@@ -15,79 +16,80 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#1a1a1a]"
-    >
-      {/* Parallax background shapes */}
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <div className="absolute right-0 top-0 h-full w-1/2">
-          <div className="absolute right-32 top-10 w-24 h-[500px] bg-gradient-to-t from-zinc-700/40 to-zinc-600/20 skew-x-[-5deg]" />
-          <div className="absolute right-16 top-20 w-20 h-[450px] bg-gradient-to-t from-zinc-700/30 to-zinc-600/10 skew-x-[-5deg]" />
-          <div className="absolute right-48 top-5 w-16 h-[520px] bg-gradient-to-t from-zinc-600/40 to-zinc-500/15 skew-x-[-5deg]" />
-          <div className="absolute right-60 top-16 w-12 h-[380px] bg-gradient-to-t from-zinc-700/30 to-transparent skew-x-[-5deg]" />
-          <div className="absolute right-72 top-32 w-10 h-[300px] bg-gradient-to-t from-zinc-600/20 to-transparent skew-x-[-5deg]" />
+    <>
+      {/* Subheading bar */}
+      <div className="bg-[#1f1f1f] border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto px-[100px] py-4">
+          <p className="text-xs uppercase tracking-[1.2px] text-[#bbb]">
+            The future of Arcadis delivery through AI
+          </p>
         </div>
-        {/* Accent glow */}
-        <div className="absolute right-20 bottom-1/3 w-64 h-64 bg-[#FF6B00]/5 rounded-full blur-3xl" />
-      </motion.div>
+      </div>
 
-      {/* Hero content */}
-      <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-32"
-        style={{ y: textY, opacity }}
+      <section
+        ref={ref}
+        className="relative h-[calc(100vh-60px)] flex flex-col overflow-hidden bg-[#1f1f1f]"
       >
-        <motion.p
-          className="text-xs font-medium uppercase tracking-[0.3em] text-[#FF6B00] mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          The future of Arcadis delivery through AI
-        </motion.p>
-
-        <motion.h1
-          className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white leading-[0.9] mb-8"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-        >
-          AI Studio
-        </motion.h1>
-
-        <motion.p
-          className="max-w-lg text-lg md:text-xl text-white/70 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-        >
-          Turning AI and digital capabilities into better outcomes for our clients
-          and communities worldwide.
-        </motion.p>
-
+        {/* Building image - parallax */}
         <motion.div
-          className="mt-12 flex flex-wrap gap-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
+          className="absolute right-0 top-0 h-full w-[55%] mix-blend-screen opacity-55"
+          style={{ y: bgY }}
         >
-          <Stat value="17" label="Scaling opportunities" />
-          <Stat value="4" label="Service lines engaged" />
-          <Stat value="3" label="Strategic partners" />
+          <Image
+            src="/Building1.png"
+            alt=""
+            fill
+            className="object-contain object-right-bottom"
+            priority
+          />
         </motion.div>
-      </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" opacity="0.5">
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
-      </motion.div>
-    </section>
+        {/* Hero content */}
+        <motion.div
+          className="relative z-10 max-w-[1440px] mx-auto px-[100px] w-full flex-1 flex flex-col justify-center pb-8"
+          style={{ y: textY, opacity }}
+        >
+          <motion.h1
+            className="text-[120px] font-bold tracking-tight text-[#ededed] leading-[1.1] mb-2"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+          >
+            AI Studio
+          </motion.h1>
+
+          <motion.p
+            className="max-w-[557px] text-2xl text-[#ededed] leading-[36px] tracking-[-0.48px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            Turning AI and digital capabilities into better outcomes for our clients.
+          </motion.p>
+
+          {/* Stats card */}
+          <motion.div
+            className="mt-[100px]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-8 rounded-[18px] bg-white/[0.09] backdrop-blur-sm p-[52px]">
+              <p className="max-w-[507px] text-lg text-[#ededed] leading-[1.6] opacity-85">
+                The AI Studio explores how emerging AI and digital capabilities can be
+                combined with our domain expertise and global delivery capability to solve
+                meaningful client problems and create new opportunities.
+              </p>
+              <div className="flex flex-1 items-center justify-around gap-16">
+                <Stat value="17" label="Scaling opportunities" />
+                <Stat value="4" label="Service lines engaged" />
+                <Stat value="3" label="Strategic partners" />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+    </>
   );
 }
 
@@ -95,10 +97,10 @@ function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-start">
-        <span className="text-4xl md:text-5xl font-light text-white">{value}</span>
-        <span className="ml-1 mt-1 inline-block h-2 w-2 bg-[#FF6B00]" />
+        <span className="text-[56px] font-bold text-[#fafafa] leading-[1.1] tracking-[-6px]">{value}</span>
+        <span className="ml-1 mt-2 inline-block size-2 bg-[#ff5c00]" />
       </div>
-      <span className="text-sm text-white/50">{label}</span>
+      <span className="text-base text-[#f5f5f5]">{label}</span>
     </div>
   );
 }

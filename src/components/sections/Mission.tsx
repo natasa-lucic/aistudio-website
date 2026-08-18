@@ -1,34 +1,63 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
+const foundations = [
+  "Deep domain expertise across sectors",
+  "Trusted client relationships",
+  "Global delivery capability",
+  "A wealth of project data and insights",
+];
+
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 md:py-32 bg-[#f8f8f8]">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <AnimatedSection>
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#FF6B00] mb-4">
+    <section id="mission" className="relative bg-[#1f1f1f] overflow-hidden min-h-screen flex flex-col">
+      {/* Section label bar */}
+      <div className="border-y border-white/10">
+        <div className="max-w-[1440px] mx-auto px-[100px] py-4">
+          <p className="text-xs font-bold uppercase tracking-[1.2px] text-[#1f1f1f] dark:text-[#bbb] text-[#bbb]">
             Our Mission
           </p>
-        </AnimatedSection>
+        </div>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-          <AnimatedSection delay={0.1}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1a1a] leading-tight">
-              We explore how AI can transform the way Arcadis delivers for clients.
-            </h2>
+      <div className="max-w-[1243px] mx-auto py-[140px] relative z-10 flex-1 flex items-center">
+        <div className="flex gap-[133px] items-end">
+          {/* Left: We build on */}
+          <AnimatedSection className="w-[436px] shrink-0" direction="left" duration={1}>
+            <h3 className="text-[32px] text-[#ededed] tracking-[-0.64px] leading-[36px] mb-9">
+              We build on
+            </h3>
+            <div className="flex flex-col gap-[12px]">
+              {foundations.map((item, i) => (
+                <div key={i} className="rounded-md border border-white/10 py-[18px] px-5 flex gap-4 items-center bg-white/[0.03]">
+                  <span className="text-base font-bold text-[#676767]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-lg text-[#8f8f8f]">{item}</span>
+                </div>
+              ))}
+            </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
-            <div className="space-y-6 text-[#1a1a1a]/70 text-lg leading-relaxed">
+          {/* Right: Scaling our expertise */}
+          <AnimatedSection delay={0.3} className="flex-1" direction="right" duration={1}>
+            <h2 className="text-[40px] font-bold text-[#ededed] tracking-[-0.4px] leading-[1.2] mb-6 max-w-[525px]">
+              Scaling our expertise through AI and digital
+            </h2>
+            <div className="space-y-6 text-lg text-[#8f8f8f] leading-[1.6]">
               <p>
-                The AI Studio is where emerging AI and digital capabilities meet deep domain
-                expertise. We identify meaningful problems across Arcadis service lines and
-                develop solutions that scale — turning research into real delivery impact.
+                Our mission is to identify where AI and digital capabilities can genuinely
+                improve the way we solve problems for our clients.
               </p>
               <p>
-                Our work spans the full lifecycle: from opportunity identification and rapid
-                prototyping to production deployment and measurable outcomes. We partner with
-                teams across Environment, Water, Transportation, and Built Environment to
-                ensure every solution is grounded in real-world complexity.
+                We build on what already differentiates us — our domain expertise, trusted
+                client relationships and global delivery capability — and combine it with
+                customer insight, product thinking and technology to explore new ways of
+                delivering value.
+              </p>
+              <p>
+                In doing so, we strengthen our Human + Digital strategy: augmenting our
+                people, transforming how we deliver, and creating scalable digital
+                capabilities that complement our core business.
               </p>
             </div>
           </AnimatedSection>
