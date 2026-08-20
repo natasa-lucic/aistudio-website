@@ -51,19 +51,19 @@ export default function Focus() {
         </AnimatedSection>
 
         {/* Three pillars with vertical orange line separators */}
-        <div className="flex items-center justify-center gap-12 w-full">
+        <div className="flex items-start justify-center gap-12 w-full">
           {pillars.map((pillar, i) => (
             <AnimatedSection key={pillar.titleBold} delay={0.2 + 0.15 * i} className="contents" duration={1}>
-              {/* Orange vertical line separator */}
+              {/* Vertical line separator */}
               <div className="flex flex-col gap-6 items-center h-[260px] w-[9px] shrink-0">
                 <div className="size-[9px] bg-[#ff5c00]" />
-                <div className="flex-1 w-px bg-[#ff5c00]/30" />
+                <div className="flex-1 w-0 border-l border-dashed border-[#d4d4d4]" />
                 <div className="size-[9px] bg-[#ff5c00]" />
               </div>
 
               {/* Pillar content */}
               <div className="flex flex-col items-center text-center justify-between h-[260px] w-[320px]">
-                <div className="h-[80px] w-[86px] relative">
+                <div className="h-[80px] w-[86px] relative shrink-0">
                   <Image src={pillar.image} alt="" fill className="object-contain object-bottom" />
                 </div>
                 <div className="flex flex-col gap-3">
@@ -71,7 +71,7 @@ export default function Focus() {
                     <span className="font-bold">{pillar.titleBold} </span>
                     {pillar.titleRegular}
                   </p>
-                  <p className="text-base text-[#676767] leading-[1.5]">
+                  <p className="text-base text-[#676767] leading-[1.5] min-h-[72px]">
                     {pillar.description}
                   </p>
                 </div>

@@ -17,7 +17,7 @@
 }
 
 :root {
-  --background: #ffffff;
+  --background: #1f1f1f;
   --foreground: #171717;
   --accent: #ff5c00;
   --dark-bg: #1f1f1f;
@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 body {

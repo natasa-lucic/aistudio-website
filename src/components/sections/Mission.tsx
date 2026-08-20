@@ -9,7 +9,7 @@ const foundations = [
 
 export default function Mission() {
   return (
-    <section id="mission" className="relative bg-[#1f1f1f] overflow-hidden min-h-screen flex flex-col">
+    <section id="mission" className="snap-start [scroll-snap-stop:always] relative bg-[#1f1f1f] overflow-hidden min-h-screen flex flex-col">
       {/* Section label bar */}
       <div className="border-y border-white/10">
         <div className="max-w-[1440px] mx-auto px-[100px] py-4">
@@ -22,21 +22,27 @@ export default function Mission() {
       <div className="max-w-[1243px] mx-auto py-[140px] relative z-10 flex-1 flex items-center">
         <div className="flex gap-[133px] items-end">
           {/* Left: We build on */}
-          <AnimatedSection className="w-[436px] shrink-0" direction="left" duration={1}>
-            <h3 className="text-[32px] text-[#ededed] tracking-[-0.64px] leading-[36px] mb-9">
-              We build on
-            </h3>
+          <div className="w-[436px] shrink-0">
+            <AnimatedSection direction="left" duration={1}>
+              <h3 className="text-[32px] text-[#ededed] tracking-[-0.64px] leading-[36px] mb-9">
+                We build on
+              </h3>
+            </AnimatedSection>
             <div className="flex flex-col gap-[12px]">
               {foundations.map((item, i) => (
-                <div key={i} className="rounded-md border border-white/10 py-[18px] px-5 flex gap-4 items-center bg-white/[0.03]">
-                  <span className="text-base font-bold text-[#676767]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-lg text-[#8f8f8f]">{item}</span>
-                </div>
+                <AnimatedSection key={i} delay={0.25 + i * 0.12} duration={0.5} distance={20}>
+                  <div className="relative py-[18px] px-5 flex gap-4 items-center">
+                    <span className="absolute inset-x-0 top-0 h-[22%] rounded-t-md border border-b-0 border-white/15 pointer-events-none" />
+                    <span className="absolute inset-x-0 bottom-0 h-[22%] rounded-b-md border border-t-0 border-white/15 pointer-events-none" />
+                    <span className="text-base font-bold text-[#f5f5f5]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-lg text-[#8f8f8f]">{item}</span>
+                  </div>
+                </AnimatedSection>
               ))}
             </div>
-          </AnimatedSection>
+          </div>
 
           {/* Right: Scaling our expertise */}
           <AnimatedSection delay={0.3} className="flex-1" direction="right" duration={1}>
