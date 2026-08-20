@@ -25,7 +25,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1440px] mx-auto flex items-center justify-between px-[100px] py-4">
           <a href="#" className="flex items-center gap-2">
-            <Image src="/arcadis-logo.svg" alt="Arcadis" width={140} height={28} priority />
+            <Image src="/arcadis-logo.svg" alt="Arcadis" width={168} height={34} priority />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -33,7 +33,7 @@ export default function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest transition-colors text-white/60 hover:text-white"
+                className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-widest transition-colors text-white/60 hover:text-white"
               >
                 <span className="inline-block h-2 w-2 bg-[#ff5c00]" />
                 {item.label}
